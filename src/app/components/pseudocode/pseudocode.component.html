@@ -1,0 +1,46 @@
+<button (click)="click()">x</button>
+
+<pre id="sphericalPseudocode" class="language-js" data-line="3" style="font-size: 11pt;">
+    <code id="sphericalCode" class="language-js line-numbers" style="font-size: 11pt;">function sphericalVoronoi(points)
+rotatedPoints = []
+    projectedPoints = []
+    
+    theta, phi = angleToNorthPole(points[0])
+    
+    for point in points:
+        rotatedPoint = point.rotate(theta, phi)
+        rotatedPoints.add(rotatedPoint)
+    <!-- if point &#8800 points[0]: -->
+    projectedPoint = rotatedPoint.projectToPlane()
+    projectedPoints.add(projectedPoint)
+    
+    projectedPoints.sort()
+    delaunay = delaunay(projectedPoints)
+    hull = delaunay.hull
+    
+    for point in hull:
+    point.neighbors.add(points[0])
+    points[0].neighbors.add(point)
+    
+    for point in points:
+    for neighbor in point.neighbors:
+    circumcenter = circumcenter(point, neighbor, neighbor.next, origin)
+    point.vertices.add(circumcenter)
+    drawPolygon(point.vertices)</code>
+                        </pre>
+                        <pre id="delaunayPseudocode" class="language-js" data-line="1" style="font-size: 11pt;">
+    <code id="delaunayCode" class="language-js" style="font-size: 11pt;">function delaunay(points)
+    <!-- if points.length() &#8804 3: -->
+    return points, convexHull(points)
+    
+    left = delaunay(points[: points.length() / 2])
+    right = delaunay(points[points.length() / 2 :])
+    
+    upperTangent = upperTangent(left, right)
+    lowerTangent = lowerTangent(left, right)
+    
+    while upperTangent != lowerTangent:
+    lowerTangent.merge(left, right)
+    
+    return points, convexHull(points)</code>
+                        </pre>

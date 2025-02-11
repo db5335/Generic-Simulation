@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+ * Styles for Spherical Voronoi Diagram webpage.
+ *
+ * Dominick Banasik
+*/
+
+.line-highlight {
+    z-index: 1;
+}
+
+a {
+    color: #2198c9;
+}
+
+.btn-primary {
+    color: #d54f67;
+    background-color: #f5f2f0 !important;
+    border-color: #a71c5f; /*set the color you want here*/
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #d54f67;
+    background-color: #ece6e3;
+    border-color: #a71c5f; /*set the color you want here*/
+}
+.btn-primary:active {
+    color: #a71c5f !important;
+    background-color: #ece6e3 !important;
+    border-color: #a71c5f !important; 
+}
+
+.card {
+    border-color: #a71c5f;
+}
+.card-header {
+    border-color: #d54f67;
+}
+
+.form-range::-webkit-slider-thumb {
+    background-color: #a71c5f !important;
+    box-shadow: solid 10px 10px #d54f67 !important;
+}
+.form-range::-webkit-slider-thumb:active {
+    background-color: #a71c5f !important;
+    box-shadow: 10 10px 10px #d54f67 !important;
+}
+.form-range::-webkit-slider-runnable-track {
+    background-color: #ece6e3 !important;
+}
+.form-range::-webkit-slider-thumb:focus {
+    background-color: #a71c5f !important;
+    box-shadow: 10 10px 10px #d54f67 !important;
+}
+.form-range::-ms-thumb {
+    background: red !important;
+}
